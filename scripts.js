@@ -1,4 +1,7 @@
-function addTextToList() {
-    var input = document.createElement("INPUT");
-    x.setAttribute("type", "text");
+function getValue()
+{
+    document.getElementById('textAdd').value
 }
+
+var text = getValue();
+var li = "<li>""
