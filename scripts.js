@@ -1,10 +1,28 @@
-document.getElementById("addCharAmount").onclick = function() {
-    //First things first, we need our text:
-    var text = document.getElementById("textAdd").value; //.value gets input values
+function isDigit(str) {
+    return str && !/[^\d]/.test(str);
+}
 
-    //Now construct a quick list element
-    var li = "<li>" + text + "</li>";
+document.getElementById("addCharAmount").onclick = function() {;
 
-    //Now use appendChild and add it to the list!
-    document.getElementById("list").appendChild(li);
+    var inputText = document.getElementById("textAdd").value;
+    var inputTextLength = inputText.length;
+
+    var charCount = 0;
+
+    for( var i = 0; i < inputTextLength; i++ )
+    {
+        if( isDigit(inputText) )
+            charCount++;
+    }
+
+    var node = document.createElement("li");
+    var text = document.createTextNode(inputTextLength - charCount);
+    node.appendChild(text);
+
+    var list = document.getElementById("list");
+    var isChild = document.getElementById("list").hasChildNodes();
+
+    list.appendChild(node);
+
+    if(isChild) list.removeChild(list.childNodes[0]);
 }
