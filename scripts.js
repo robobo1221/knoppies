@@ -1,3 +1,5 @@
+/* Functions by Robin Stikfort */
+
 function intergrateResult(inputText){
     // Create li node
     var node = document.createElement("li");
