@@ -1,3 +1,12 @@
+function intergrateResult(inputText){
+    var node = document.createElement("li");
+    var text = document.createTextNode(inputText);
+    node.appendChild(text);
+
+    var list = document.getElementById("list");
+    list.appendChild(node);
+}
+
 document.getElementById("addCharAmount").onclick = function() {;
 
     var inputText = document.getElementById("textAdd").value;
@@ -5,16 +14,7 @@ document.getElementById("addCharAmount").onclick = function() {;
 
     var inputTextLength = inputText.length;
 
-    var node = document.createElement("li");
-    var text = document.createTextNode(inputTextLength);
-    node.appendChild(text);
-
-    var list = document.getElementById("list");
-    var isChild = document.getElementById("list").hasChildNodes();
-
-    list.appendChild(node);
-
-    if(isChild) list.removeChild(list.childNodes[0]);
+    intergrateResult(inputText);
 }
 
 document.getElementById("addReverseText").onclick = function() {;
@@ -27,16 +27,7 @@ document.getElementById("addReverseText").onclick = function() {;
     var reverseArray = splitText.reverse();
     var joinedArray = reverseArray.join("");
 
-    var node = document.createElement("li");
-    var text = document.createTextNode(joinedArray);
-    node.appendChild(text);
-
-    var list = document.getElementById("list");
-    var isChild = document.getElementById("list").hasChildNodes();
-
-    list.appendChild(node);
-
-    if(isChild) list.removeChild(list.childNodes[0]);
+    intergrateResult(joinedArray);
 }
 
 function isUpperCase(char){
@@ -65,15 +56,5 @@ document.getElementById("addSwitchCases").onclick = function() {;
     var inputText = document.getElementById("textAdd").value;
         inputText = convertCase(inputText);
 
-    var node = document.createElement("li");
-    var text = document.createTextNode(inputText);
-
-    node.appendChild(text);
-
-    var list = document.getElementById("list");
-    var isChild = document.getElementById("list").hasChildNodes();
-
-    list.appendChild(node);
-
-    if(isChild) list.removeChild(list.childNodes[0]);
+    intergrateResult(inputText);
 }
